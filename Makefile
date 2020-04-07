@@ -3,7 +3,7 @@
 all: paper.pdf
 
 paper.pdf: paper.tex
-	latexmk -lualatex -g $<
+	latexmk -lualatex $<
 
 clean:
 	latexmk -C

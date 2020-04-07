@@ -10,8 +10,21 @@ in
 
 with pkgs;
 
-pkgs.mkShell {
-  buildInputs =  [
+stdenv.mkDerivation {
+  name = "paper";
+  src = builtins.path { name = "foobar"; path = ./.; };
+
+  preBuild = ''
+    export TEXMFVAR=/tmp/texmf
+    mkdir -p $TEXMFVAR
+  '';
+
+  installPhase = ''
+    mkdir -p $out
+    cp paper.pdf $out
+  '';
+
+  buildInputs = [
     (texlive.combine {
       inherit (texlive) scheme-small luatex biblatex latexmk biber;
     })

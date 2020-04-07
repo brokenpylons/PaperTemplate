@@ -27,14 +27,14 @@ jobs:
         fi
 
     - name: Build
-      run: nix-shell --pure --run make
+      run: nix-build
     
     - name: Save closure
       run: |
         mkdir -p cache
-        nix-store --export $(nix-store -qR --include-outputs $(nix-instantiate ./shell.nix)) > cache/paper.closure
+        nix-store --export $(nix-store -qR --include-outputs $(nix-instantiate)) > cache/paper.closure
     
     - uses: actions/upload-artifact@v1
       with:
         name: paper
-        path: paper.pdf
+        path: result/paper.pdf
