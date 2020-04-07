@@ -18,4 +18,5 @@ jobs:
     
     - uses: actions/upload-artifact@v2-preview
       with:
-        path: paper.pdf
+        name: paper.pdf
+        path: ./paper.pdf
