@@ -16,6 +16,7 @@ jobs:
     - uses: actions/cache@v1
       with:
         path: /nix/store
+        key: store
 
     - name: Build
       run: nix-shell --pure --run make
