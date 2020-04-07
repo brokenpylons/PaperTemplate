@@ -17,8 +17,8 @@ jobs:
       id: cache
       with:
         path: cache
-        key: ${{runner.os}}-closure-${{github.sha}}
-        restore-keys: ${{ runner.os }}-closure-
+        key: ${{runner.os}}-cache-closure-${{github.sha}}
+        restore-keys: ${{ runner.os }}-cache-closure-
         
     - name: Load closure
       run: |
