@@ -21,8 +21,10 @@ jobs:
         restore-keys: ${{ runner.os }}-closure-
         
     - name: Load closure
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: nix-store --import < cache/paper.closure
+      run: |
+        if [ -f cache/paper.closure ]; then
+          nix-store --import < cache/paper.closure
+        fi
 
     - name: Build
       run: nix-shell --pure --run make
