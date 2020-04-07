@@ -16,7 +16,6 @@ jobs:
     - uses: actions/cache@v1
       with:
         path: /nix/store
-        key: ${{basename -s .drv $(nix-instantiate ./shell.nix)}}
 
     - name: Build
       run: nix-shell --pure --run make
