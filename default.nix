@@ -12,7 +12,7 @@ with pkgs;
 
 stdenv.mkDerivation {
   name = "paper";
-  src = builtins.path { name = "foobar"; path = ./.; };
+  src = ./.;
 
   preBuild = ''
     export TEXMFVAR=/tmp/texmf
