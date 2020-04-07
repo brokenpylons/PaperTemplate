@@ -16,20 +16,20 @@ jobs:
     - uses: actions/cache@v1
       id: cache
       with:
-        path: ./cache/paper.closure
+        path: cache
         key: closure
         
     - name: Load closure
       if: steps.cache.outputs.cache-hit == 'true'
-      run: nix-store --import < ./cache/paper.closure
+      run: nix-store --import < cache/paper.closure
 
     - name: Build
       run: nix-shell --pure --run make
     
     - name: Save closure
       run: |
-        
-        nix-store --export $(nix-store -qR $(nix-instantiate ./shell.nix)) > ./cache/paper.closure
+        mkdir -p cache
+        nix-store --export $(nix-store -qR $(nix-instantiate ./shell.nix)) > cache/paper.closure
     
     - uses: actions/upload-artifact@v2-preview
       with:
