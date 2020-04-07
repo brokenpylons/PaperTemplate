@@ -14,12 +14,20 @@ jobs:
     - uses: cachix/install-nix-action@v7
     
     - uses: actions/cache@v1
+      id: cache
       with:
-        path: /nix/store
-        key: store
+        path: paper.closure
+        key: closure
+        
+    - name: Load closure
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: nix-store --import < paper.closure
 
     - name: Build
       run: nix-shell --pure --run make
+    
+    - name: Save closure
+      run: nix-store --export $(nix-store -qR $(nix-instantiate ./shell.nix)) > paper.closure
     
     - uses: actions/upload-artifact@v2-preview
       with:
