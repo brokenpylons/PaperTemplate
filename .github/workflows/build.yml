@@ -16,7 +16,6 @@ jobs:
     - name: Build
       run: nix-shell --pure --run make
     
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v2-preview
       with:
-        name: paper
         path: paper.pdf
