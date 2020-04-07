@@ -30,12 +30,12 @@ jobs:
     - name: Save closure
       run: nix-store --export $(nix-store -qR $(nix-build -E '(import ./shell.nix).buildInputs')) > paper.closure
         
-    - uses: actions/upload-artifact@v2-preview
+    - uses: actions/upload-artifact@v1
       with:
         name: closure
         path: paper.closure
     
-    - uses: actions/upload-artifact@v2-preview
+    - uses: actions/upload-artifact@v1
       with:
         name: paper
         path: paper.pdf
