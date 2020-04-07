@@ -29,7 +29,7 @@ jobs:
     - name: Save closure
       run: |
         mkdir -p cache
-        nix-store --export $(nix-store -qR $(nix-instantiate ./shell.nix)) > cache/paper.closure
+        nix-store --export $(nix-store -qR $(nix-build -E '(import ./shell.nix).buildInputs')) > cache/paper.closure
     
     - uses: actions/upload-artifact@v2-preview
       with:
