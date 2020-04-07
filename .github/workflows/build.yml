@@ -19,7 +19,10 @@ jobs:
         name: closure
         
     - name: Load closure
-      run: test -f paper.closure && nix-store --import < paper.closure
+      run: |
+        if test -f paper.closure; then
+          nix-store --import < paper.closure
+        fi
 
     - name: Build
       run: nix-shell --pure --run make
