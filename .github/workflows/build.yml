@@ -13,23 +13,23 @@ jobs:
     - uses: actions/checkout@v2
     - uses: cachix/install-nix-action@v7
     
-    - uses: actions/cache@v1
-      id: cache
+    - uses: actions/download-artifact@v1
       with:
-        path: cache
-        key: ${{runner.os}}-closure
+        name: closure
         
     - name: Load closure
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: nix-store --import < cache/paper.closure
+      run: test -f paper.closure && nix-store --import < paper.closure
 
     - name: Build
       run: nix-shell --pure --run make
     
     - name: Save closure
-      run: |
-        mkdir -p cache
-        nix-store --export $(nix-store -qR $(nix-build -E '(import ./shell.nix).buildInputs')) > cache/paper.closure
+      run: nix-store --export $(nix-store -qR $(nix-build -E '(import ./shell.nix).buildInputs')) > paper.closure
+        
+    - uses: actions/upload-artifact@v2-preview
+      with:
+        name: closure
+        path: paper.closure
     
     - uses: actions/upload-artifact@v2-preview
       with:
