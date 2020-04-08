@@ -1,6 +1,6 @@
 # PaperTemplate
 
-Template repositry for reproducible paper builds.
+Template repository for reproducible paper builds.
 
 ## Assumptions
 - Paper name: paper.tex
