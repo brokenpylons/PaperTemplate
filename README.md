@@ -1,4 +1,5 @@
 # PaperTemplate
+![Build](https://github.com/brokenpylons/PaperTemplate/workflows/Build/badge.svg)
 
 Template repository for reproducible paper builds.
 
