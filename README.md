@@ -17,7 +17,7 @@ For development use ```nix-shell``` and just run ```make``` manually.
 ## GitHub Actions
 The repositry has an action setup for building the paper.
 It runs ```nix-build``` and uploads the paper as an artifact.
-The dependencies are cached between runs, to optimize the build times (cca. 2 min).
+The dependencies are cached between runs to optimize the build times (cca. 2 min).
 
 ## Notes
 ```lualatex``` and ```luaotfload-tool``` fail without output when ran using ```nix-build```.
