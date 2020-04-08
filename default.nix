@@ -26,7 +26,7 @@ stdenv.mkDerivation {
 
   buildInputs = [
     (texlive.combine {
-      inherit (texlive) scheme-small luatex biblatex latexmk biber;
+      inherit (texlive) scheme-small luatex biblatex latexmk biber acmart;
     })
   ];
 }
