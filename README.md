@@ -3,10 +3,10 @@
 Template repository for reproducible paper builds.
 
 ## Assumptions
-- Paper name: paper.tex
+- Paper file name: paper.tex
 - Latex compiler: ```lualatex```
 - Build tool: ```latexmk```
-- References name: references.bib
+- References file name: references.bib
 - References format: ```biblatex```
 - References compiler: ```biber```
 
