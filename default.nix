@@ -4,7 +4,7 @@ let
     url = https://github.com/nixos/nixpkgs-channels/;
     ref = "refs/heads/nixos-unstable";
     # git ls-remote https://github.com/nixos/nixpkgs-channels nixos-unstable
-    rev = "ae6bdcc53584aaf20211ce1814bea97ece08a248";
+    rev = "4762fba469e2baa82f983b262e2c06ac2fdaae67";
   }) {};
 in
 
