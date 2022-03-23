@@ -10,7 +10,7 @@ Template repository for reproducible paper builds.
 - References file name: references.bib
 - References format: ```biblatex```
 - References compiler: ```biber```
-- Font: ```STIX 2```
+- Font: STIX 2
 
 ## Build
 For the final build use ```nix-build```.
