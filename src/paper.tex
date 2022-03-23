@@ -1,11 +1,19 @@
 \documentclass{article}
+\usepackage{unicode-math}
+\usepackage{lualatex-math}
+\setmainfont[
+  BoldFont={STIX2Text-Bold},
+  ItalicFont={STIX2Text-Italic},
+  BoldItalicFont={STIX2Text-BoldItalic}
+]{STIX2Text-Regular}
+\setmathfont{STIX2Math}
 
 \usepackage{biblatex}
 \addbibresource{references.bib}
 
 \begin{document}
 \section{Section}
-Text \cite{knuth_fa} text
+Text \cite{knuth_fa} text $\Rightarrow$
 
 \printbibliography
 \end{document}
