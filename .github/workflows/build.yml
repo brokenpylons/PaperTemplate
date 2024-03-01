@@ -29,6 +29,7 @@ jobs:
           nix-store --import < cache/paper.closure
         fi
         readarray -t paths <(nix build --impure --print-out-paths)
+        echo "${paths[@]}"
         mkdir -p cache
         nix-store --export $(nix-store -qR --include-outputs "${paths[@]}") > cache/paper.closure
     
