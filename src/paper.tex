@@ -2,16 +2,22 @@
 \usepackage{unicode-math}
 \usepackage{lualatex-math}
 \setmainfont[
-  BoldFont={STIX2Text-Bold},
-  ItalicFont={STIX2Text-Italic},
-  BoldItalicFont={STIX2Text-BoldItalic}
-]{STIX2Text-Regular}
-\setmathfont{STIX2Math}
+  BoldFont={STIXTwoText-Bold},
+  ItalicFont={STIXTwoText-Italic},
+  BoldItalicFont={STIXTwoText-BoldItalic}
+]{STIXTwoText-Regular}
+\setmathfont{STIXTwoMath-Regular}
 
 \usepackage{biblatex}
 \addbibresource{references.bib}
 
+\title{Title}
+\author{Me}
+\date{\today}
+
 \begin{document}
+\maketitle
+
 \section{Section}
 Text \cite{knuth_fa} text $\Rightarrow$
 
