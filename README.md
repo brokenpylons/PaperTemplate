@@ -15,6 +15,8 @@ Template repository for reproducible paper builds.
 ## Build
 For the final build use ```nix build```.
 For development use ```nix develop``` and just run ```make``` manually.
+To provide the derivation with the current time add the ```--impure``` flag.
+Note that in that case the output path changes on every build.
 
 ## GitHub Actions
 The repositry has an action setup for building the paper.
