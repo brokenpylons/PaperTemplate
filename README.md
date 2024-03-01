@@ -13,16 +13,16 @@ Template repository for reproducible paper builds.
 - Font: STIX 2
 
 ## Build
-For the final build use ```nix-build```.
-For development use ```nix-shell``` and just run ```make``` manually.
+For the final build use ```nix build```.
+For development use ```nix develop``` and just run ```make``` manually.
 
 ## GitHub Actions
 The repositry has an action setup for building the paper.
-It runs ```nix-build``` and uploads the paper as an artifact.
+It runs ```nix build``` and uploads the paper as an artifact.
 The dependencies are cached between runs to optimize the build times (cca. 2 min).
 
 ## Notes
-```lualatex``` and ```luaotfload-tool``` fail without output when ran using ```nix-build```.
+```lualatex``` and ```luaotfload-tool``` fail without output when ran using ```nix build```.
 The problem is that they don't have access to the ```TEXMFVAR``` directory.
 You can fix that by setting the variable to something that is accessible (in this template it is set to ```/tmp/texmf```).
 
