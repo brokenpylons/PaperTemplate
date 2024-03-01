@@ -23,19 +23,14 @@ jobs:
         key: ${{runner.os}}-cache-closure-${{github.sha}}
         restore-keys: ${{ runner.os }}-cache-closure-
         
-    - name: Load closure
+    - name: Build
       run: |
         if [ -f cache/paper.closure ]; then
           nix-store --import < cache/paper.closure
         fi
-
-    - name: Build
-      run: nix-build
-    
-    - name: Save closure
-      run: |
+        readarray -t paths <(nix build --impure --print-out-paths)
         mkdir -p cache
-        nix-store --export $(nix-store -qR --include-outputs $(nix-instantiate)) > cache/paper.closure
+        nix-store --export $(nix-store -qR --include-outputs "${paths[@]}") > cache/paper.closure
     
     - uses: actions/upload-artifact@v1
       with:
